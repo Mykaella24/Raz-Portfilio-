@@ -1,0 +1,169 @@
+
+:root {
+  --primary: #007BFF;
+  --nav-bg: #60A5FA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary);
+  line-height: 1.6;
+}
+
+nav {
+  background: var(--nav-bg);
+  color: white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.hero {
+  background: var(--primary);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+}
+
+/* General Section */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  text-align: center;
+  color: rgb(0, 0, 0);
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 40px;
+  align-items: center;
+
+}
+
+.skills-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.projects-container {
+  position: relative;
+  height: 420px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+/* Contact Form */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  grid-column: span 2;
+  min-height: 140px;
+}
+
+.btn {
+  grid-column: span 2;
+  background: var(--primary);
+  color: rgb(0, 0, 0);
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.info-item i {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
