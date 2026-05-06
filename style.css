@@ -1,4 +1,4 @@
-
+/* DEFAULT */
 :root {
   --primary: #007BFF;
   --nav-bg: #60A5FA;
@@ -13,9 +13,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--primary);
-  line-height: 1.6;
+  line-height: 1.7;          
+  color: #333;
 }
 
+/* NAVIGATION */
 nav {
   background: var(--nav-bg);
   color: white;
@@ -34,9 +36,11 @@ nav {
   padding: 0 20px;
 }
 
-.logo {
-  font-size: 1.6rem;
-  font-weight: bold;
+.logo img {           /* para sa image position */ 
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 nav ul {
@@ -46,7 +50,7 @@ nav ul {
 }
 
 nav a {
-  color: rgb(0, 0, 0);
+  color: #000;
   text-decoration: none;
   font-weight: 500;
 }
@@ -55,71 +59,194 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.hero {
+/* HEADER */
+.header {
   background: var(--primary);
-  color: rgb(0, 0, 0);
+  color: #000;
   text-align: center;
-  padding: 120px 20px 80px;
+  padding: 90px 20px 50px;     /* spacing */
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+.header h1 {
+  font-size: 3.2rem;
 }
 
-.hero p {
-  font-size: 1.3rem;
-}
-
-/* General Section */
+/* SECTIONS */
 .section {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
+  margin: 45px auto;           /* For vertical spacing */
+  padding: 70px 20px;          /* padding sa loob ng sections */
+  background: #60A5FA;
+  border-radius: 12px;
 }
 
 .card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  padding: 30px;
-  margin-bottom: 40px;
+  padding: 48px 45px;          /* For card padding */
+  margin-bottom: 55px;         /* spaces sa baba ng cards */
 }
 
 h2 {
   text-align: center;
-  color: rgb(0, 0, 0);
-  margin-bottom: 30px;
-  font-size: 2.2rem;
+  color: #000;
+  margin-bottom: 40px;         /* space sa baba ng headings */
+  font-size: 2.8rem;
+}
+
+/* ABOUT ME */
+#intro .card {
+  padding: 55px 50px;          /* padding para sa about me card */
 }
 
 .intro-grid {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;                   /* spaces sa pagitan ng texts and photos */
   align-items: center;
-
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.skills-container {
-  position: relative;
+.intro-text {
+  padding-right: 30px;
+}
+
+.intro-image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.intro-image img {
+  width: 290px;
+  height: 290px;
   border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* SLIDESHOW - SKILLS */
+.slideshow-skills {
+  max-width: 900px;
+  margin: 45px auto;           /* More space around slideshow */
+  position: relative;
   overflow: hidden;
-}
-
-.projects-container {
-  position: relative;
-  height: 420px;
   border-radius: 12px;
-  text-align: center;
 }
 
+.slideshow-skills .slides {
+  display: flex;
+  width: 200%;
+  transition: transform 0.7s ease-in-out;
+}
 
-/* Contact Form */
+.slideshow-skills .slide {
+  width: 50%;
+}
+
+.slideshow-skills img {
+  width: 100%;
+  height: 520px;               
+  object-fit: cover;
+}
+
+/* SLIDESHOW - PROJECTS */
+.slideshow-projects {
+  max-width: 900px;
+  margin: 45px auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.slideshow-projects .slides {
+  display: flex;
+  width: 200%;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slideshow-projects .slide {
+  width: 50%;
+}
+
+.slideshow-projects img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+}
+
+/* Skills & Projects Navigation */
+#skill1:checked ~ .slides { transform: translateX(0%); }
+#skill2:checked ~ .slides { transform: translateX(-50%); }
+#project1:checked ~ .slides { transform: translateX(0%); }
+#project2:checked ~ .slides { transform: translateX(-50%); }
+
+/* COMMON SLIDESHOW CONTROLS */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  user-select: none;
+}
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Dots */
+.dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+/* Active Dots */
+#skill1:checked ~ .dots label[for="skill1"],
+#skill2:checked ~ .dots label[for="skill2"],
+#project1:checked ~ .dots label[for="project1"],
+#project2:checked ~ .dots label[for="project2"] {
+  background: #000;
+  transform: scale(1.3);
+}
+
+/* CONTACT */
 .contact-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 25px;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -128,42 +255,64 @@ h2 {
 .contact-form textarea {
   width: 100%;
   padding: 14px 16px;
-  border: 1px solid #000000;
+  border: 1px solid #000;
   border-radius: 8px;
   font-size: 1rem;
 }
 
 .contact-form textarea {
   grid-column: span 2;
-  min-height: 140px;
+  min-height: 150px;
 }
 
 .btn {
   grid-column: span 2;
   background: var(--primary);
-  color: rgb(0, 0, 0);
-  padding: 14px;
+  color: white;
+  padding: 15px;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
   cursor: pointer;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #0056b3;
 }
 
 .contact-info {
   display: flex;
   justify-content: center;
   gap: 50px;
-  margin-top: 40px;
+  margin-top: 45px;
   flex-wrap: wrap;
 }
 
-.info-item {
-  text-align: center;
-  color: rgb(0, 0, 0);
-}
-
-.info-item i {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  display: block;
+@media (max-width: 768px) {
+  .section {
+    margin: 30px auto;
+    padding: 50px 15px;
+  }
+  
+  .card {
+    padding: 40px 25px;
+  }
+  
+  #intro .card {
+    padding: 40px 25px;
+  }
+  
+  .intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .intro-image {
+    justify-content: center;
+  }
+  
+  .header h1 { font-size: 2.4rem; }
+  h2 { font-size: 2.2rem; }
 }
